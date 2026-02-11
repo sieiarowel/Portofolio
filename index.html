@@ -1,276 +1,289 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caroline Belinda Tangka</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caroline Belinda Tangka</title>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap');
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: #f4f4f4;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container,
-        .about,
-        .projects {
-            display: none;
-        }
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+    color: #f4f4f4;
+}
 
-        .active {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: row;
-            text-align: left;
-            padding: 20px;
-            animation: fadeIn 1s ease-in-out;
-        }
+.navbar {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    background-color: rgba(18,18,18,0.95);
+    z-index: 1000;
+}
 
-        .profile-img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
-            margin-right: 40px;
-        }
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
 
-        .text {
-            max-width: 500px;
-        }
+.navbar ul li a {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
+}
 
-        h1 {
-            font-size: 28px;
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
+.navbar ul li a:hover {
+    color: #00d4ff;
+}
 
-        h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 60px;
-            margin: 0;
-            color: #00d4ff;
-        }
 
-        p {
-            font-size: 18px;
-            font-weight: 300;
-        }
+section {
+    min-height: 100vh;
+    padding: 120px 40px 60px 40px;
+    display: none;
+    animation: fadeIn 0.8s ease-in-out;
+}
 
-        .navbar {
-            position: absolute;
-            top: 20px;
-            right: 50px;
-        }
+.active {
+    display: flex;
+}
 
-        .navbar ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-        }
+/* ================= HOME ================= */
 
-        .navbar ul li a {
-            color: #f4f4f4;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
+.home {
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 50px;
+}
 
-        .navbar ul li a:hover {
-            color: #00d4ff;
-        }
+.profile-img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,212,255,0.4);
+}
 
-        .about,
-        .projects {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 80px 20px;
-        }
+.text h1 {
+    font-weight: 300;
+    font-size: 24px;
+}
 
-        .divider {
-            width: 80%;
-            height: 2px;
-            background-color: #00d4ff;
-            margin: 20px 0;
-        }
+.text h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+    color: #00d4ff;
+}
 
-        .about h2,
-        .projects h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 30px;
-            font-weight: bold;
-            color: #00d4ff;
-        }
+.text p {
+    margin-top: 10px;
+    font-size: 18px;
+}
 
-        .projects .project-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-            text-align: left;
-        }
+/* ================= ABOUT ================= */
 
-        .projects .project-item {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s;
-        }
+.about {
+    flex-direction: column;
+    text-align: center;
+}
 
-        .projects .project-item:hover {
-            transform: translateY(-5px);
-        }
+.about h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    margin: 20px 0;
+    color: #00d4ff;
+}
 
-        .projects .project-item h3 {
-            color: #00d4ff;
-        }
+.divider {
+    width: 80%;
+    height: 2px;
+    background-color: #00d4ff;
+    margin: 30px auto;
+}
 
-        .projects .project-item a {
-            color: #00d4ff;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.projects {
+    flex-direction: column;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+.projects h2 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    color: #00d4ff;
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
 
-        @media (max-width: 768px) {
-            .active {
-                flex-direction: column;
-                text-align: center;
-            }
+.project-item {
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 15px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+}
 
-            .profile-img {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,212,255,0.3);
+}
 
-            .text {
-                max-width: 100%;
-            }
-        }
-    </style>
+.project-item h3 {
+    color: #00d4ff;
+    margin-bottom: 10px;
+}
+
+.project-item p {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.project-item a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #00d4ff;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+
+    .navbar {
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .text h2 {
+        font-size: 40px;
+    }
+
+    .text p {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 100px 20px 40px 20px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <ul>
-            <li><a onclick="showSection('home')">Home</a></li>
-            <li><a onclick="showSection('about')">About</a></li>
-            <li><a onclick="showSection('projects')">Projects</a></li>
-        </ul>
-    </nav>
+<nav class="navbar">
+<ul>
+<li><a onclick="showSection('home')">Home</a></li>
+<li><a onclick="showSection('about')">About</a></li>
+<li><a onclick="showSection('projects')">Projects</a></li>
+</ul>
+</nav>
 
-    <!-- Home Section -->
-    <div class="container active" id="home">
-        <img src="profile.jpg" alt="Caroline Belinda Tangka" class="profile-img">
-        <div class="text">
-            <h1>Hai, it's me</h1>
-            <h2 style="white-space: nowrap;">Caroline Tangka</h2>
-            <p>Informatics Engineering Student / Semester 6</p>
-        </div>
-    </div>
+<section class="home active" id="home">
+<img src="profile.jpg" alt="Caroline Belinda Tangka" class="profile-img">
+<div class="text">
+<h1>Hai, it's me</h1>
+<h2>Caroline Tangka</h2>
+<p>Informatics Engineering Student</p>
+</div>
+</section>
 
-    <section class="about" id="about">
-        <p>Hai! Saya <b>Caroline Belinda Tangka</b>,</p>
-        <p>Mahasiswa <b>Teknik Informatika Semester 6</b> yang tertarik dalam pengembangan web, kecerdasan buatan, dan analisis data.</p>
+<section class="about" id="about">
+<p>Hai! Saya <b>Caroline Belinda Tangka</b></p>
+<p>Mahasiswa Teknik Informatika yang tertarik dalam pengembangan web, AI, dan data analysis.</p>
 
-        <div class="divider"></div>
+<div class="divider"></div>
 
-        <h2>Skills</h2>
-        <p><b>Programming:</b> Python, Java, JavaScript</p>
-        <p><b>Web Development:</b> HTML, CSS, React</p>
-        <p><b>Database:</b> MySQL</p>
-        <p><b>Soft Skills:</b> Public Speaking, Komunikasi, Kerja Tim</p>
-        <p><b>Tools:</b> Microsoft Office</p>
+<h2>Skills</h2>
+<p><b>Programming:</b> Python, Java, JavaScript</p>
+<p><b>Web:</b> HTML, CSS, React</p>
+<p><b>Database:</b> MySQL</p>
+<p><b>Soft Skills:</b> Public Speaking, Leadership, Teamwork</p>
 
-        <div class="divider"></div>
+<div class="divider"></div>
 
-        <h2>Let's Connect!</h2>
-        <p>📧 Email:
-            <a href="mailto:carolinetangka3@gmail.com" style="color:#00d4ff;">
-                carolinetangka3@gmail.com
-            </a>
-        </p>
-        <p>📌 GitHub:
-            <a href="https://github.com/sieiarowel" target="_blank" style="color:#00d4ff;">
-                github.com/sieiarowel
-            </a>
-        </p>
-        <p>📸 Instagram:
-            <a href="https://instagram.com/sieiarowel" target="_blank" style="color:#00d4ff;">
-                @sieiarowel
-            </a>
-        </p>
-    </section>
+<h2>Let's Connect</h2>
+<p>Email: carolinetangka3@gmail.com</p>
+<p>GitHub: github.com/sieiarowel</p>
+<p>Instagram: @sieiarowel</p>
+</section>
 
+<section class="projects" id="projects">
+<h2>My Projects</h2>
 
-    <section class="projects" id="projects">
-        <h2>My Projects</h2>
+<div class="project-container">
 
-        <div class="project-container">
+<div class="project-item">
+<h3>ApoTrack</h3>
+<p>Sistem manajemen apotek berbasis web.</p>
+<p>📌 Terdaftar HKI.</p>
+<a href="https://pdki-indonesia.dgip.go.id:/link/454330303230323532313139377c636f70797269676874" target="_blank">View Project</a>
+</div>
 
-            <div class="project-item">
-                <h3>ApoTrack</h3>
-                <p>Sistem manajemen apotek berbasis web yang membantu pencatatan stok, transaksi, dan pelaporan secara efisien.</p>
-                <p>📌 Terdaftar di Hak Kekayaan Intelektual (HKI).</p>
-            </div>
+<div class="project-item">
+<h3>Kulkas App</h3>
+<p>Aplikasi Java untuk pencatatan stok dan penjualan kulkas.</p>
+<a href="https://github.com/sieiarowel/KulkasApp" target="_blank">View Project</a>
+</div>
 
-            <div class="project-item">
-                <h3>Kulkas App</h3>
-                <p>Aplikasi berbasis Java untuk pencatatan stok dan penjualan kulkas dengan fitur pencarian dan laporan otomatis.</p>
-            </div>
+<div class="project-item">
+<h3>Pytzle</h3>
+<p>Game puzzle sederhana berbasis Python.</p>
+<a href="https://github.com/sieiarowel/Pytzle" target="_blank">View Project</a>
+</div>
 
-            <div class="project-item">
-                <h3>Pytzle (Game Puzzle)</h3>
-                <p>Permainan puzzle sederhana berbasis Python di mana pengguna dapat menyesuaikan gambar sesuai keinginan.</p>
-            </div>
+<div class="project-item">
+<h3>Canava – English Learning Platform</h3>
+<p>Platform pembelajaran Bahasa Inggris berbasis website.</p>
+<p> Digunakan sebagai website pembelajaran interaktif pada salah satu kelas di SMA Negeri 3 Kotamobagu.</p>
+<p>🚧 Status: On Development</p>
+<a href="https://canava.page.gd/" target="_blank">Preview Canava</a>
+</div>
 
-            <div class="project-item">
-                <h3>Canava – English Learning Platform</h3>
-                <p>Canava adalah aplikasi pembelajaran Bahasa Inggris berbasis website yang dirancang untuk mendukung proses belajar yang lebih interaktif, fleksibel, dan terukur di era digital.</p>
-                <p>Platform ini menyediakan materi berdasarkan topik, fitur pretest, serta sistem pemantauan hasil belajar siswa. Guru berperan sebagai admin yang dapat mengelola kelas, materi, dan evaluasi pembelajaran.</p>
-                <p> Website ini dibuat dan dikembangkan untuk SMA Negeri 3 Kotamobagu.</p>
-                <p><strong>🚧 Status:</strong> On Development</p>
-                <a href="https://canava.page.gd/" target="_blank">Preview Canava</a>
-            </div>
+</div>
+</section>
 
-        </div>
-    </section>
-
-    <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('.container, .about, .projects').forEach(section => {
-                section.style.display = 'none';
-            });
-
-            document.getElementById(sectionId).style.display = 'flex';
-        }
-    </script>
+<script>
+function showSection(id) {
+    document.querySelectorAll("section").forEach(section => {
+        section.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+}
+</script>
 
 </body>
-
 </html>
